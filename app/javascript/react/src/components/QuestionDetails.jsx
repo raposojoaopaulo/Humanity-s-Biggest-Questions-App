@@ -1,6 +1,7 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { useState } from 'react';
+import ShowAnswares from './ShowAnswares';
 
 class QuestionDetails extends React.Component {
   constructor(props) {
@@ -34,17 +35,16 @@ class QuestionDetails extends React.Component {
     .catch(error => console.log(error));
   }
 
-
   render() {
     return (
       <div className="card rounded-0 mt-3">
         <div className="card-body">
           <h3 className="card-title">{this.props.question.title}</h3>
           <p className="lead">
-            <span className="badge bg-primary">{this.props.question.tag}</span>
+            <span className="badge rounded-pill bg-secondary">{this.props.question.tag}</span>
           </p>
           <button 
-            type="button" className="btn btn-primary position-relative"
+            type="button" className="btn btn-primary position-relative me-3" 
             onClick={this.updateLikeCount}
           >
             Like
@@ -53,31 +53,15 @@ class QuestionDetails extends React.Component {
                 {this.state.likeCount}
               </span> : ''
             }
-          </button>
+          </button>          
+          {/* <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Launch static backdrop modal
+          </button> */}
+          <ShowAnswares question={this.props.question} />
         </div>
       </div>    
     )
   }
 };
-
-
-// const QuestionDetails = (props) => {
-//   const [likeCount, setLikeCount] = useState(0);
-
-//   return (
-//     <div className="card rounded-0 mt-3">
-//       <div className="card-body">
-//         <h3 className="card-title">{props.question.title}</h3>
-//         <p className="lead">
-//           <span className="badge bg-primary">{props.question.tag}</span>
-//         </p>
-//         <button className="btn btn-primary mt-1" onClick={() => setLikeCount(likeCount + 1)}>Like!</button>
-//         { likeCount > 0 ?
-//           <span className="badge bg-primary ms-2">{likeCount}</span> : ''
-//         }
-//       </div>
-//     </div>
-//   )
-// };
 
 export default QuestionDetails;
