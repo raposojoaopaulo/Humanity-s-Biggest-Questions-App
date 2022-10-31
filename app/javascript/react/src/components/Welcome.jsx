@@ -1,20 +1,25 @@
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
+import * as ReactDOM from 'react-dom/client'
 
-const Welcome = () => {
-  return (
-    <div className="container">
-      <h1>Hello World! Welcome to rails 7</h1>
-      <p className="lead">This is the first lecture</p>
-    </div>
-  )
-};
+import QuestionList from './QuestionList';
 
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <Welcome />,
-    document.getElementById('welcome')
-  )
-})
+class Welcome extends React.Component {
+  render() {
+    return (
+      <div className="container">
+        <h1 className="mt-3">Welcome To Humanity's Biggest Questions App!</h1>
+        <QuestionList />
+      </div>
+    )
+  }
+}
+
+const root = ReactDOM.createRoot(document.getElementById('welcome'));
+root.render(
+  <React.StrictMode>
+    <Welcome />
+  </React.StrictMode>
+);
+
 
 export default Welcome
