@@ -54,6 +54,7 @@ const NewQuestion = () => {
             title: '',
             tag: questionsTags[0].value
           });
+          location.reload();
         };
         
       })
@@ -83,7 +84,7 @@ const NewQuestion = () => {
                 value={formFields.title}
                 onChange={(event) => handleFormFieldsChange(event)} 
               />
-            </div>
+            </div>            
             <div className="form-group">
               <label className="form-label mt-3 mb-3">Select the question tag: </label>
               <select 
@@ -103,7 +104,7 @@ const NewQuestion = () => {
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" className="btn btn-primary">Submit Question</button>
+            <button type="submit" className="btn btn-primary">Submit Question</button>            
           </div>
         </form>
       </div>
