@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import ServerSideError from './ServerSideError';
 
 const NewAnswer = (props) => {
 
@@ -21,8 +22,6 @@ const NewAnswer = (props) => {
     const handleAnswerSubmit = (event) => {
       event.preventDefault();
       createAnswer(formFields);
-      console.log(formFields);
-      console.log(props.question);
     };
 
     const createAnswer = (data) => {
@@ -35,10 +34,9 @@ const NewAnswer = (props) => {
       })
         .then(response => response.json())
         .then(data => {
-          console.log(data);
           if (data['status'] === 'failure') {
             setIsServerSideError(true);
-            setServerErrors(data['data']);
+            setServerErrors(data.errors);
           } else {
             setIsServerSideError(false);
             setServerErrors([]);

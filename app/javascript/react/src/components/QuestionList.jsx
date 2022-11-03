@@ -42,7 +42,7 @@ const QuestionList = () => {
 
   useEffect(() => {
     fetchQuestionList();
-  }, []);
+  }, [questionsList]);
 
   const updateSelectedItem = (event) => {
     setIsShowLoader(false);

@@ -10,7 +10,7 @@ class Api::V1::AnswersController < ApplicationController
   def create
     @answer = @questions.answers.new(answer_params)
     if @answer.save
-      render json: @answer
+      render json: { data: @answer, status: 'success' }, status: :ok
     else
       render json: { errors: @answer.errors.full_messages, status: 'failure' }, status: :unprocessable_entity
     end
