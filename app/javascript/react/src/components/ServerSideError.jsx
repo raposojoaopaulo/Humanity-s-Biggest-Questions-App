@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 const ServerSideError = (props) => {
   return(
     <>
-      <p className="lead fw-bold">Please fiz errors below</p>
+      <p className="lead fw-bold">Please fix errors below</p>
       {props.errors.map((error, index) => (
         <p className="alert alert-danger" key={index} role="alert">
           {error}
