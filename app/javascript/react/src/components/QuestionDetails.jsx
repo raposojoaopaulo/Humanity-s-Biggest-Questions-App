@@ -37,7 +37,7 @@ class QuestionDetails extends React.Component {
 
   render() {
     return (
-      <div className="card rounded-0 mt-3">
+      <div className="card rounded-0 mt-3">        
         <div className="card-body">
           <h3 className="card-title">{this.props.question.title}</h3>
           <p className="lead">
@@ -54,10 +54,13 @@ class QuestionDetails extends React.Component {
               </span> : ''
             }
           </button>          
-          {/* <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          {/* <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
             Launch static backdrop modal
           </button> */}
-          <ShowAnswares question={this.props.question} />
+          <a className="btn btn-primary" data-bs-toggle="collapse" href={`#collapse${this.props.question.id}`} role="button" aria-expanded="false" aria-controls={`collapse${this.props.question.id}`}>
+            Show answares
+          </a>
+          <ShowAnswares question={this.props.question} key={this.props.question.id}/>
         </div>
       </div>    
     )
