@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { useEffect, useState } from 'react';
 import QuestionDetails from './QuestionDetails';
+import NewAnswer from './NewAnswer';
 
 const ShowAnswares = (props) => {
   const [answearsList, setAnswearsList] = useState([]);
@@ -16,8 +17,8 @@ const ShowAnswares = (props) => {
   };
 
   useEffect(() => {
-    fetchAnswearsList();
-  }, []);
+    fetchAnswearsList(); 
+  }, [answearsList]);
 
   return(
     <div className="collapse mt-3" id={`collapse${props.question.id}`}> 
@@ -34,7 +35,11 @@ const ShowAnswares = (props) => {
               )
           }) : <p>There is no answears for this question.</p> 
           }
-          <footer className="blockquote-footer mt-1"> <cite title="Source Title">These are the answers to this great question of humanity</cite></footer>
+          <footer className="blockquote-footer mt-1"> 
+            <cite title="Source Title">These are the answers to this great question of humanity</cite>  
+          </footer>
+                
+            <NewAnswer question={props.question.id}/>
         </div>  
       </div>    
     </div>
